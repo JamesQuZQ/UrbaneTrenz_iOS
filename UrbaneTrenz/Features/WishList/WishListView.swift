@@ -20,14 +20,7 @@ struct WishListView: View {
                     .background(.black)
                     .foregroundColor(.white)
                     
-                    ScrollView{
-                        VStack(spacing: 0) {
-                            ProductView().padding(10).padding(.bottom, -10)
-                            ProductView().padding(10).padding(.bottom, -10)
-                            ProductView().padding(10).padding(.bottom, -10)
-                            ProductView().padding(10).padding(.bottom, -10)
-                        }
-                    }
+
                 }
             }
         }

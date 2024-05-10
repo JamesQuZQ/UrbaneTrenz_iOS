@@ -5,11 +5,13 @@
 
 import SwiftUI
 
-struct ProductView: View {
+struct ProductEntryView: View {
+    @ObservedObject var viewModel : ProductEntryViewModel
+    
     var body: some View {
         VStack{
             HStack{
-                AsyncImage(url: URL(string: "https://assets.myntassets.com/v1/images/style/properties/87321ab7962a30b2e9b01fa16997029c_images.jpg")) { image in
+                AsyncImage(url: URL(string:viewModel.product.ImageURL)) { image in
                     image
                         .resizable()
                         .frame(width:150,height: 150)
@@ -18,29 +20,35 @@ struct ProductView: View {
                 }
                 VStack(spacing: 0){
                     HStack{
-                        Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry" + "\n")
+                        Text(viewModel.product.ProductTitle + "\n")
                             .font(.system(size:18))
                             .lineLimit(3)
                         Spacer()
                     }
                     .padding(.bottom, 3)
                     HStack{
-                        Text("Women|red|sport")
+                        Text("\(viewModel.product.Gender) | \(viewModel.product.SubCategory) | \(viewModel.product.Colour) | \(viewModel.product.ProductUsage)")
                             .foregroundColor(.gray)
+                            .font(.system(size:15))
                             .lineLimit(2)
                         Spacer()
                     }.padding(.bottom, 5)
                     HStack{
-                        Text("$50")
-                            .foregroundColor(Color(red:0.051,green:0.255,blue:0.820))
-                            .font(.system(size:24))
+                        Text("$\(viewModel.product.Price)")
+                            .foregroundColor(Util.BLUE)
+                            .font(.system(size:22))
                         Spacer()
+                        viewModel.product.StockCount > 0 ?
                         Text("In Stock")
+                            .foregroundColor(.green)
+                            .font(.system(size:14)) :
+                        Text("Out of Stock")
+                            .foregroundColor(.red)
+                            .font(.system(size:14))
                     }
                 }
-                .padding(.trailing, 30)
             }
-            .padding(.bottom, -10)
+            .padding(.bottom, -5)
             HStack{
                 Button{
                     
@@ -65,10 +73,9 @@ struct ProductView: View {
                 .background(.black)
                 .clipShape(Capsule())
             }
-            .padding(.horizontal, 30)
-            .padding(.bottom, 20)
-
         }
+        .padding(.vertical, 10)
+        .padding(.horizontal, 20)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
                 .stroke(.gray, lineWidth: 1)
@@ -80,6 +87,6 @@ struct ProductView: View {
 
 struct ItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductView()
+        ProductEntryView(viewModel: ProductEntryViewModel(product: Product(ProductID: 0, Gender: "Men", Category: "Footwear", SubCategory: "Shoes", ProductType: "Shoe", Colour: "White", ProductUsage: "Sport", ProductTitle: "Sample Shoe", ImageLocal: "", ImageURL: "http://assets.myntassets.com/v1/images/style/properties/7c80fca789c5c1863a4080d7ed57acf0_images.jpg", StockCount: 1, Price: "10")))
     }
 }

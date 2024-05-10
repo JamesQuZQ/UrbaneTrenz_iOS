@@ -6,14 +6,15 @@
 import SwiftUI
 
 struct ShopView: View {
-    var categories = ["men", "women", "girls", "boys"]
+    
+    @ObservedObject var viewModel : ShopViewModel
     
     var body: some View {
         NavigationView{
             VStack{
                 NavigationLink(
                     destination:
-                        CategoryView(),
+                        SearchView(viewModel: SearchViewModel()),
                     label: {
                         HStack{
                             Image(systemName: "magnifyingglass")
@@ -30,17 +31,18 @@ struct ShopView: View {
                 .background(Color(hue: 0,saturation: 0,brightness: 0.98))
                 .clipShape(Capsule())
                 .padding(.horizontal, 20)
+                .padding(.top, 10)
                 
-                ForEach(categories, id:\.self) { category in
+                ForEach(viewModel.categories, id:\.self) { category in
                     NavigationLink(
                         destination:
-                            CategoryView(),
+                            SubcategoryView(viewModel: SubCategoryViewModel(categoryType: viewModel.getCategoryType(category:category), category: category)),
                         label: {
                             VStack(spacing: 0){
                                 HStack{
-                                    Text("\(category)")
-                                        .font(Font.custom("AnotherDangerDemo", size: 40))
-                                        .padding(.leading, 30)
+                                    Text(" \(category)   ")
+                                        .font(Font.custom("AnotherDangerDemo", size: 30))
+                                        .padding(.leading, 10)
                                         .foregroundColor(.black)
                                     Spacer()
                                 }
@@ -58,6 +60,6 @@ struct ShopView: View {
 
 struct ShopView_Previews: PreviewProvider {
     static var previews: some View {
-        ShopView()
+        ShopView(viewModel:ShopViewModel())
     }
 }
