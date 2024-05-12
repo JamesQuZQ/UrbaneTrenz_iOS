@@ -13,14 +13,23 @@ struct WishListView: View {
                 VStack(spacing: 0){
                     HStack{
                         Spacer()
-                        Text(" Cart ")
+                        Text(" List ")
                             .font(Font.custom("AnotherDangerDemo", size: 40))
                         Spacer()
                     }
                     .background(.black)
                     .foregroundColor(.white)
                     
+                    ScrollView{
+                        
+                    }
+                    .clipped()
+                    
 
+                }
+                
+                VStack{
+                    Spacer()
                 }
             }
         }
