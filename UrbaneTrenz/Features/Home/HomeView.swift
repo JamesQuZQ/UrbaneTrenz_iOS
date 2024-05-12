@@ -23,7 +23,7 @@ struct HomeView: View {
                     Divider()
                         .frame(height:8)
                         .background(Util.BLUE)
-
+                    Spacer()
                 }
             }
         }

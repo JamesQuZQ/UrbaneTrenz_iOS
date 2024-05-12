@@ -19,7 +19,7 @@ struct AppView: View {
             WishListView().tabItem{
                 Label("List", systemImage: "heart")
             }.tag(3)
-            CartView().tabItem{
+            CartView(viewModel: CartViewModel()).tabItem{
                 Label("Cart", systemImage: "cart")
             }.tag(4)
             OrdersView().tabItem{

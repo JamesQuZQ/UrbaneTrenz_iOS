@@ -31,6 +31,11 @@
 		305031CA2BECEA050028E419 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031C92BECEA050028E419 /* Util.swift */; };
 		305031CC2BECEBBC0028E419 /* ProductDisplayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031CB2BECEBBC0028E419 /* ProductDisplayViewModel.swift */; };
 		305031CF2BED03670028E419 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031CE2BED03670028E419 /* SearchViewModel.swift */; };
+		305031D12BEE512F0028E419 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031D02BEE512F0028E419 /* CartViewModel.swift */; };
+		305031D32BEE58E60028E419 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031D22BEE58E60028E419 /* CartItem.swift */; };
+		305031D62BEFAC250028E419 /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031D52BEFAC250028E419 /* CartItemView.swift */; };
+		305031D82BEFAC380028E419 /* CartItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031D72BEFAC380028E419 /* CartItemViewModel.swift */; };
+		305031DB2BEFAD2F0028E419 /* CartDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031DA2BEFAD2F0028E419 /* CartDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +63,11 @@
 		305031C92BECEA050028E419 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		305031CB2BECEBBC0028E419 /* ProductDisplayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDisplayViewModel.swift; sourceTree = "<group>"; };
 		305031CE2BED03670028E419 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		305031D02BEE512F0028E419 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
+		305031D22BEE58E60028E419 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		305031D52BEFAC250028E419 /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
+		305031D72BEFAC380028E419 /* CartItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemViewModel.swift; sourceTree = "<group>"; };
+		305031DA2BEFAD2F0028E419 /* CartDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,10 +102,10 @@
 		305031822BEA4D850028E419 /* UrbaneTrenz */ = {
 			isa = PBXGroup;
 			children = (
+				305031D92BEFAD1E0028E419 /* DAL */,
 				305031AA2BEC73480028E419 /* Info.plist */,
 				305031C12BECDF480028E419 /* Models */,
 				305031A72BEC71C90028E419 /* Utils */,
-				305031972BEA630C0028E419 /* Components */,
 				305031962BEA63060028E419 /* Features */,
 				305031832BEA4D850028E419 /* UrbaneTrenzApp.swift */,
 				3050319E2BEA64CD0028E419 /* AppView.swift */,
@@ -126,15 +136,6 @@
 			path = Features;
 			sourceTree = "<group>";
 		};
-		305031972BEA630C0028E419 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				305031BE2BECC5190028E419 /* ProductDisplay */,
-				305031982BEA63190028E419 /* ProductEntry */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		305031982BEA63190028E419 /* ProductEntry */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +156,9 @@
 		305031A02BEA6B820028E419 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				305031D42BEFAC110028E419 /* CartItem */,
 				305031AE2BEC800D0028E419 /* CartView.swift */,
+				305031D02BEE512F0028E419 /* CartViewModel.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -163,6 +166,8 @@
 		305031A12BEC701F0028E419 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
+				305031BE2BECC5190028E419 /* ProductDisplay */,
+				305031982BEA63190028E419 /* ProductEntry */,
 				305031A42BEC70CC0028E419 /* Subcategory */,
 				305031A22BEC70340028E419 /* ShopView.swift */,
 				305031BC2BECC4710028E419 /* ShopViewModel.swift */,
@@ -227,8 +232,26 @@
 			children = (
 				305031C22BECDF5F0028E419 /* Product.swift */,
 				305031C42BECE5C90028E419 /* Subcategory.swift */,
+				305031D22BEE58E60028E419 /* CartItem.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		305031D42BEFAC110028E419 /* CartItem */ = {
+			isa = PBXGroup;
+			children = (
+				305031D52BEFAC250028E419 /* CartItemView.swift */,
+				305031D72BEFAC380028E419 /* CartItemViewModel.swift */,
+			);
+			path = CartItem;
+			sourceTree = "<group>";
+		};
+		305031D92BEFAD1E0028E419 /* DAL */ = {
+			isa = PBXGroup;
+			children = (
+				305031DA2BEFAD2F0028E419 /* CartDAO.swift */,
+			);
+			path = DAL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				305031DB2BEFAD2F0028E419 /* CartDAO.swift in Sources */,
 				305031CC2BECEBBC0028E419 /* ProductDisplayViewModel.swift in Sources */,
 				305031AF2BEC800D0028E419 /* CartView.swift in Sources */,
 				305031862BEA4D850028E419 /* HomeView.swift in Sources */,
@@ -318,14 +342,18 @@
 				305031922BEA50360028E419 /* ProductEntryView.swift in Sources */,
 				305031C52BECE5C90028E419 /* Subcategory.swift in Sources */,
 				305031C02BECD8910028E419 /* SubcategoryViewModel.swift in Sources */,
+				305031D82BEFAC380028E419 /* CartItemViewModel.swift in Sources */,
 				305031A32BEC70340028E419 /* ShopView.swift in Sources */,
 				3050319F2BEA64CD0028E419 /* AppView.swift in Sources */,
 				305031B52BEC83BC0028E419 /* OrdersView.swift in Sources */,
+				305031D62BEFAC250028E419 /* CartItemView.swift in Sources */,
 				305031B12BEC838A0028E419 /* WishListView.swift in Sources */,
 				305031BD2BECC4710028E419 /* ShopViewModel.swift in Sources */,
+				305031D32BEE58E60028E419 /* CartItem.swift in Sources */,
 				305031C72BECE9550028E419 /* ProductDisplayView.swift in Sources */,
 				305031842BEA4D850028E419 /* UrbaneTrenzApp.swift in Sources */,
 				305031A62BEC70DB0028E419 /* SubcategoryView.swift in Sources */,
+				305031D12BEE512F0028E419 /* CartViewModel.swift in Sources */,
 				3050319D2BEA638A0028E419 /* ProductEntryViewModel.swift in Sources */,
 				305031B32BEC83AA0028E419 /* SearchView.swift in Sources */,
 				305031CA2BECEA050028E419 /* Util.swift in Sources */,
@@ -385,6 +413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"INFOPLIST_FILE[sdk=*]" = UrbaneTrenz/info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -439,6 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"INFOPLIST_FILE[sdk=*]" = UrbaneTrenz/info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

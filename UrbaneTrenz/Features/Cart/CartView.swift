@@ -6,6 +6,9 @@
 import SwiftUI
 
 struct CartView: View {
+    
+    @ObservedObject var viewModel : CartViewModel
+    
     var body: some View {
         NavigationView{
             ZStack{
@@ -19,15 +22,23 @@ struct CartView: View {
                     }
                     .background(.black)
                     .foregroundColor(.white)
-                    
+                    ScrollView{
+                        ForEach(viewModel.cart) { cartItem in
+                            CartItemView(viewModel: CartItemViewModel(cartItem: cartItem, cartViewModel: viewModel))
+                                .padding(10).padding(.bottom, -10)
+                        }
+                    }
                 }
             }
+        }
+        .onAppear{
+            viewModel.getCart()
         }
     }
 }
 
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
-        CartView()
+        CartView(viewModel: CartViewModel())
     }
 }

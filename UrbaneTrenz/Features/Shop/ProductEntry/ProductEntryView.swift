@@ -62,7 +62,7 @@ struct ProductEntryView: View {
                 
                 Spacer()
                 Button{
-                    
+                    viewModel.addToCart()
                 } label: {
                     Text("Add to Cart").padding(.trailing, -5)
                     Image(systemName: "cart.badge.plus")

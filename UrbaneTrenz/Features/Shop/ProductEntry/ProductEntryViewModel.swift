@@ -4,6 +4,8 @@
 //
 
 import Foundation
+import SwiftyJSON
+import Alamofire
 
 class ProductEntryViewModel : ObservableObject {
     
@@ -11,5 +13,9 @@ class ProductEntryViewModel : ObservableObject {
     
     init(product : Product) {
         self.product = product
+    }
+    
+    func addToCart(){
+        CartDAO.addProductToCart(product:product)
     }
 }
