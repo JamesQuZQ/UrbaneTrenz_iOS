@@ -20,9 +20,13 @@ struct HomeView: View {
                     }
                     .background(.black)
                     .foregroundColor(.white)
+                    
+                    
                     Divider()
                         .frame(height:8)
                         .background(Util.BLUE)
+                    
+                    Text("hello world")
                     Spacer()
                 }
             }
