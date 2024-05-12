@@ -9,7 +9,7 @@ struct ProductEntryView: View {
     @ObservedObject var viewModel : ProductEntryViewModel
     
     var body: some View {
-        VStack{
+        VStack(spacing:0){
             HStack{
                 AsyncImage(url: URL(string:viewModel.product.ImageURL)) { image in
                     image
@@ -48,18 +48,7 @@ struct ProductEntryView: View {
                     }
                 }
             }
-            .padding(.bottom, -5)
             HStack{
-                Button{
-                    
-                } label: {
-                    Text("Save to List").padding(.trailing, -3)
-                    Image(systemName: "note.text.badge.plus").padding(.top, 2)
-                }
-                .padding(.horizontal, 10)
-                .padding(.vertical, 5)
-                .foregroundColor(.black)
-                
                 Spacer()
                 Button{
                     viewModel.addToCart()
@@ -87,6 +76,6 @@ struct ProductEntryView: View {
 
 struct ItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductEntryView(viewModel: ProductEntryViewModel(product: Product(ProductID: 0, Gender: "Men", Category: "Footwear", SubCategory: "Shoes", ProductType: "Shoe", Colour: "White", ProductUsage: "Sport", ProductTitle: "Sample Shoe", ImageLocal: "", ImageURL: "http://assets.myntassets.com/v1/images/style/properties/7c80fca789c5c1863a4080d7ed57acf0_images.jpg", StockCount: 1, Price: "10")))
+        ProductEntryView(viewModel: ProductEntryViewModel(product: Product(ProductID: 0, Gender: "Men", Category: "Footwear", SubCategory: "Shoes", ProductType: "Shoe", Colour: "White", ProductUsage: "Sport", ProductTitle: "Sample Shoe Sample Shoe Sample", ImageLocal: "", ImageURL: "http://assets.myntassets.com/v1/images/style/properties/7c80fca789c5c1863a4080d7ed57acf0_images.jpg", StockCount: 1, Price: "10")))
     }
 }

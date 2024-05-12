@@ -80,7 +80,7 @@ struct CartItemView: View {
                     }
                     .foregroundColor(.gray)
                 }
-                .padding(.horizontal, 15)
+                .padding(.horizontal, 10)
                 .padding(.vertical, 5)
                 .overlay(
                     Capsule()

@@ -22,13 +22,46 @@ struct CartView: View {
                     }
                     .background(.black)
                     .foregroundColor(.white)
+                    if viewModel.cart.isEmpty {
+                        Text("Add your first item to the cart!").padding()
+                    }
                     ScrollView{
                         ForEach(viewModel.cart) { cartItem in
                             CartItemView(viewModel: CartItemViewModel(cartItem: cartItem, cartViewModel: viewModel))
-                                .padding(10).padding(.bottom, -10)
+                                .padding(10).padding(.bottom, -20)
                         }
                     }
+                    .clipped()
+                    Divider()
+                        .frame(height: 1)
+                        .background(.gray)
+                    HStack{
+                        Spacer()
+                        Text(" Subtotal: \(viewModel.calculateTotal())")
+                            .padding(.trailing, 5)
+                            .padding(.vertical)
+                        Button {
+                            viewModel.checkOut()
+                        } label: {
+                            Text("Checkout")
+                                .font(.system(size: 20))
+                        }
+                        .padding(.horizontal, 15)
+                        .padding(.vertical, 5)
+                        .foregroundColor(.white)
+                        .background(.black)
+                        .clipShape(Capsule())
+                        .buttonStyle(.plain)
+                        .disabled(viewModel.cart.isEmpty)
+                        .sheet(isPresented: $viewModel.presentCheckout){
+                            CheckoutView(viewModel: CheckoutViewModel(cart: viewModel.cart))
+                        }
+                    }
+                    .padding(.top, 5)
+                    .padding(.horizontal)
+                    .background(.white)
                 }
+                
             }
         }
         .onAppear{

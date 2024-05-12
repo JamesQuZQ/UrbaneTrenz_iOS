@@ -42,7 +42,9 @@ class ProductDisplayViewModel : ObservableObject {
             AF.request(url)
                 .responseDecodable(of: [Product].self) { response in
                     if let result = response.value {
-                        self.products = Array(result[0..<10])
+                        if !result.isEmpty {
+                            self.products = Array(result[0..<10])
+                        }
                     } else {
                         print(response.error)
                     }

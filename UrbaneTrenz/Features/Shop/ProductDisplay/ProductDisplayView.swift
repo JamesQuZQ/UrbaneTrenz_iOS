@@ -30,6 +30,9 @@ struct ProductDisplayView: View {
                     ForEach(viewModel.products){ product in
                         ProductEntryView(viewModel: ProductEntryViewModel(product: product)).padding(10).padding(.bottom, -10)
                     }
+                    if viewModel.products.isEmpty {
+                        Text("Sorry, there are no products under this category").padding()
+                    }
                 }
             }.clipped()
         }

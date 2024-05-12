@@ -31,7 +31,7 @@ class CartDAO {
         do {
             let data = try String(contentsOf: fileURL)
             let decoder = JSONDecoder()
-            if var cart = try? decoder.decode([CartItem].self,from: data.data(using:.utf8)!) {
+            if let cart = try? decoder.decode([CartItem].self,from: data.data(using:.utf8)!) {
                 return cart
             }
         } catch {
@@ -43,9 +43,10 @@ class CartDAO {
     static func modifyProductQuantity(product : Product, newCount : Int) {
         var cart = readFromCart()
         cart = cart.filter{$0.product.ProductID != product.ProductID}
-        if newCount > 0 && newCount <= product.StockCount {
-            cart.append(CartItem(product: product, productCount: newCount))
+        if newCount > 0 {
+            cart.append(CartItem(product: product, productCount: newCount <= product.StockCount ? newCount : product.StockCount))
         }
+        cart.sort(by: {$0.id < $1.id})
         writeToCart(cart: cart)
     }
     
@@ -63,6 +64,7 @@ class CartDAO {
                 cart.append(CartItem(product: product, productCount: current + 1))
             }
         }
+        cart.sort(by: {$0.id < $1.id})
         writeToCart(cart: cart)
     }
     
@@ -71,4 +73,5 @@ class CartDAO {
         cart = cart.filter{$0.product.ProductID != product.ProductID}
         writeToCart(cart: cart)
     }
+    
 }
