@@ -9,8 +9,8 @@ struct CheckoutView: View {
     
     @ObservedObject var viewModel : CheckoutViewModel
     @Environment(\.dismiss) var dismiss
+    @State var presentConfirmation : Bool = false
 
-    
     var body: some View {
         ZStack{
             Color.gray.opacity(0.1).ignoresSafeArea()
@@ -41,17 +41,36 @@ struct CheckoutView: View {
                         Divider()
                             .foregroundColor(.gray)
                             .frame(height: 1)
-                        VStack{
+                        HStack{
+                            HStack{
+                                VStack(alignment:.leading){
+                                    Text("John Doe").bold()
+                                    Text("Somewhere St")
+                                    Text("Sydey, NSW 2000")
+                                }
+                                Spacer()
+                            }
+                            .padding()
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(Util.BLUE, lineWidth: 2)
+                            )
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
                             Button{
                                 
                             } label: {
                                 VStack(spacing: 5){
                                     Image(systemName: "plus.square.dashed")
-                                    Text("Click to add a new Address")
+                                    Text("Add new\n address")
                                 }
                             }
                             .padding()
-                            .foregroundColor(.black)
+                            .foregroundColor(.gray)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(.gray, lineWidth: 1)
+                            )
+                            .clipShape(RoundedRectangle(cornerRadius: 20))
                         }
                     }
                     .padding(.vertical, 10)
@@ -157,6 +176,8 @@ struct CheckoutView: View {
                     Text("")
                         .padding(.vertical)
                     Button {
+                        viewModel.saveOrder()
+                        presentConfirmation = true
                     } label: {
                         Text("Place Order")
                             .font(.system(size: 20))
@@ -166,7 +187,11 @@ struct CheckoutView: View {
                     .foregroundColor(.white)
                     .background(.black)
                     .clipShape(Capsule())
-                    
+                    .sheet(isPresented: $presentConfirmation, onDismiss: {
+                        dismiss()
+                    }){
+                        OrderConfirmationView()
+                    }
                 }
                 .padding(.top, 5)
                 .padding(.horizontal)

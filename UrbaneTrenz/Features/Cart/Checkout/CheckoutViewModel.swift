@@ -31,4 +31,8 @@ class CheckoutViewModel : ObservableObject {
     func calculateTotal() -> String {
         return String(format: "%.2f", cart.map({(Double($0.product.Price) ?? 0) * Double($0.productCount)}).reduce(0, +))
     }
+    
+    func saveOrder() {
+        
+    }
 }

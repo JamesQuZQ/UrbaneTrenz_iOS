@@ -41,6 +41,7 @@
 		305031E22BF0828D0028E419 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031E12BF0828C0028E419 /* RadioButton.swift */; };
 		305031E62BF08BCE0028E419 /* CheckoutItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031E52BF08BCE0028E419 /* CheckoutItemView.swift */; };
 		305031EA2BF08E0E0028E419 /* CheckOutItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031E92BF08E0E0028E419 /* CheckOutItemViewModel.swift */; };
+		305031F02BF0A0360028E419 /* OrderConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031EF2BF0A0360028E419 /* OrderConfirmationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		305031E12BF0828C0028E419 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		305031E52BF08BCE0028E419 /* CheckoutItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemView.swift; sourceTree = "<group>"; };
 		305031E92BF08E0E0028E419 /* CheckOutItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutItemViewModel.swift; sourceTree = "<group>"; };
+		305031EF2BF0A0360028E419 /* OrderConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +271,7 @@
 		305031DC2BF06F230028E419 /* Checkout */ = {
 			isa = PBXGroup;
 			children = (
+				305031EC2BF0A00D0028E419 /* OrderConfirmation */,
 				305031E32BF08BA30028E419 /* CheckoutItem */,
 				305031DD2BF06F3C0028E419 /* CheckoutViewModel.swift */,
 				305031DF2BF06F4E0028E419 /* CheckoutView.swift */,
@@ -283,6 +286,14 @@
 				305031E92BF08E0E0028E419 /* CheckOutItemViewModel.swift */,
 			);
 			path = CheckoutItem;
+			sourceTree = "<group>";
+		};
+		305031EC2BF0A00D0028E419 /* OrderConfirmation */ = {
+			isa = PBXGroup;
+			children = (
+				305031EF2BF0A0360028E419 /* OrderConfirmationView.swift */,
+			);
+			path = OrderConfirmation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +393,7 @@
 				305031B52BEC83BC0028E419 /* OrdersView.swift in Sources */,
 				305031D62BEFAC250028E419 /* CartItemView.swift in Sources */,
 				305031B12BEC838A0028E419 /* WishListView.swift in Sources */,
+				305031F02BF0A0360028E419 /* OrderConfirmationView.swift in Sources */,
 				305031BD2BECC4710028E419 /* ShopViewModel.swift in Sources */,
 				305031EA2BF08E0E0028E419 /* CheckOutItemViewModel.swift in Sources */,
 				305031D32BEE58E60028E419 /* CartItem.swift in Sources */,
