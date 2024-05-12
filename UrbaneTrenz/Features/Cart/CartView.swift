@@ -24,6 +24,10 @@ struct CartView: View {
                     .foregroundColor(.white)
                     if viewModel.cart.isEmpty {
                         Text("Add your first item to the cart!").padding()
+                        
+                        Image("empty_box")
+                            .offset(y:120)
+                     
                     }
                     ScrollView{
                         ForEach(viewModel.cart) { cartItem in
