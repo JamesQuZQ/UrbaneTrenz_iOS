@@ -22,7 +22,7 @@ struct AppView: View {
             CartView(viewModel: CartViewModel()).tabItem{
                 Label("Cart", systemImage: "cart")
             }.tag(4)
-            OrdersView().tabItem{
+            OrdersView(viewModel: OrdersViewModel()).tabItem{
                 Label("Orders", systemImage: "shippingbox")
             }.tag(5)
         }.accentColor(.black)
