@@ -16,21 +16,15 @@ struct AppView: View {
             ShopView(viewModel: ShopViewModel()).tabItem{
                 Label("Shop", systemImage: "doc.text.magnifyingglass")
             }.tag(2)
-            WishListView().tabItem{
-                Label("List", systemImage: "heart")
-            }.tag(3)
             CartView(viewModel: CartViewModel()).tabItem{
                 Label("Cart", systemImage: "cart")
-            }.tag(4)
+            }.tag(3)
             OrdersView(viewModel: OrdersViewModel()).tabItem{
                 Label("Orders", systemImage: "shippingbox")
-            }.tag(5)
+            }.tag(4)
         }.accentColor(.black)
-
     }
 }
-
-
 
 struct AppView_Previews: PreviewProvider {
     static var previews: some View {

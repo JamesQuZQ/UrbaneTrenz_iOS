@@ -44,6 +44,10 @@
 		305031F02BF0A0360028E419 /* OrderConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031EF2BF0A0360028E419 /* OrderConfirmationView.swift */; };
 		305031F32BF0A93D0028E419 /* OrderDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031F22BF0A93D0028E419 /* OrderDAO.swift */; };
 		305031F52BF0A9720028E419 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031F42BF0A9720028E419 /* OrderItem.swift */; };
+		305031F72BF24DE20028E419 /* OrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031F62BF24DE20028E419 /* OrdersViewModel.swift */; };
+		305031FA2BF24E9F0028E419 /* OrderItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031F92BF24E9F0028E419 /* OrderItemViewModel.swift */; };
+		305031FC2BF24EC30028E419 /* OrderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305031FB2BF24EC30028E419 /* OrderItemView.swift */; };
+		305031FF2BF264450028E419 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 305031FE2BF264450028E419 /* SwiftDate */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +88,9 @@
 		305031EF2BF0A0360028E419 /* OrderConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationView.swift; sourceTree = "<group>"; };
 		305031F22BF0A93D0028E419 /* OrderDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDAO.swift; sourceTree = "<group>"; };
 		305031F42BF0A9720028E419 /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
+		305031F62BF24DE20028E419 /* OrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModel.swift; sourceTree = "<group>"; };
+		305031F92BF24E9F0028E419 /* OrderItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemViewModel.swift; sourceTree = "<group>"; };
+		305031FB2BF24EC30028E419 /* OrderItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +100,7 @@
 			files = (
 				305031BB2BECC3AE0028E419 /* SwiftyJSON in Frameworks */,
 				305031B82BECC3870028E419 /* Alamofire in Frameworks */,
+				305031FF2BF264450028E419 /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +239,9 @@
 		305031AD2BEC7EB60028E419 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				305031F82BF24E910028E419 /* OrderItem */,
 				305031B42BEC83BC0028E419 /* OrdersView.swift */,
+				305031F62BF24DE20028E419 /* OrdersViewModel.swift */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -302,6 +312,15 @@
 			path = OrderConfirmation;
 			sourceTree = "<group>";
 		};
+		305031F82BF24E910028E419 /* OrderItem */ = {
+			isa = PBXGroup;
+			children = (
+				305031F92BF24E9F0028E419 /* OrderItemViewModel.swift */,
+				305031FB2BF24EC30028E419 /* OrderItemView.swift */,
+			);
+			path = OrderItem;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -321,6 +340,7 @@
 			packageProductDependencies = (
 				305031B72BECC3870028E419 /* Alamofire */,
 				305031BA2BECC3AE0028E419 /* SwiftyJSON */,
+				305031FE2BF264450028E419 /* SwiftDate */,
 			);
 			productName = UrbaneTrenz;
 			productReference = 305031802BEA4D850028E419 /* UrbaneTrenz.app */;
@@ -353,6 +373,7 @@
 			packageReferences = (
 				305031B62BECC3870028E419 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				305031B92BECC3AE0028E419 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				305031FD2BF264440028E419 /* XCRemoteSwiftPackageReference "SwiftDate" */,
 			);
 			productRefGroup = 305031812BEA4D850028E419 /* Products */;
 			projectDirPath = "";
@@ -388,10 +409,12 @@
 				305031AF2BEC800D0028E419 /* CartView.swift in Sources */,
 				305031862BEA4D850028E419 /* HomeView.swift in Sources */,
 				305031C32BECDF5F0028E419 /* Product.swift in Sources */,
+				305031F72BF24DE20028E419 /* OrdersViewModel.swift in Sources */,
 				305031DE2BF06F3C0028E419 /* CheckoutViewModel.swift in Sources */,
 				305031CF2BED03670028E419 /* SearchViewModel.swift in Sources */,
 				305031922BEA50360028E419 /* ProductEntryView.swift in Sources */,
 				305031E62BF08BCE0028E419 /* CheckoutItemView.swift in Sources */,
+				305031FC2BF24EC30028E419 /* OrderItemView.swift in Sources */,
 				305031C52BECE5C90028E419 /* Subcategory.swift in Sources */,
 				305031C02BECD8910028E419 /* SubcategoryViewModel.swift in Sources */,
 				305031D82BEFAC380028E419 /* CartItemViewModel.swift in Sources */,
@@ -413,6 +436,7 @@
 				3050319D2BEA638A0028E419 /* ProductEntryViewModel.swift in Sources */,
 				305031B32BEC83AA0028E419 /* SearchView.swift in Sources */,
 				305031CA2BECEA050028E419 /* Util.swift in Sources */,
+				305031FA2BF24E9F0028E419 /* OrderItemViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,6 +657,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		305031FD2BF264440028E419 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -645,6 +677,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 305031B92BECC3AE0028E419 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		305031FE2BF264450028E419 /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 305031FD2BF264440028E419 /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

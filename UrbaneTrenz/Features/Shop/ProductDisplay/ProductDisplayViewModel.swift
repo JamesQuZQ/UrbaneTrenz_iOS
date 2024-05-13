@@ -46,7 +46,7 @@ class ProductDisplayViewModel : ObservableObject {
                             self.products = Array(result[0..<10])
                         }
                     } else {
-                        print(response.error)
+                        print(response.error ?? "Error sending query")
                     }
             }
         }
@@ -62,7 +62,7 @@ class ProductDisplayViewModel : ObservableObject {
                     if let result = response.value {
                         self.products = result
                     } else {
-                        print(response.error)
+                        print(response.error ?? "Error sending query")
                     }
             }
         }

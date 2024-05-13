@@ -94,8 +94,8 @@ struct CheckoutView: View {
                             .frame(height: 1)
                         HStack{
                             VStack() {
-                                RadioButton(tag: CheckoutViewModel.ShippingMethod.standard, selection:$viewModel.shippingMethod, label: "Standard: FREE\nDelivery: by May 20th")
-                                RadioButton(tag: CheckoutViewModel.ShippingMethod.expedited, selection:$viewModel.shippingMethod, label: "Expedited: $7.99\nDelivery: by May 17th").disabled(true)
+                                RadioButton(tag: CheckoutViewModel.ShippingMethod.standard, selection:$viewModel.shippingMethod, label: "Standard: FREE\nDelivery: by \(viewModel.deliveryTime(time: Util.STANDARD_DELIVERY))")
+                                RadioButton(tag: CheckoutViewModel.ShippingMethod.expedited, selection:$viewModel.shippingMethod, label: "Expedited: $7.99\nDelivery: by \(viewModel.deliveryTime(time: Util.EXPEDITED_DELIVERY))").disabled(true)
                             }
                             .padding()
                             Spacer()
@@ -188,6 +188,7 @@ struct CheckoutView: View {
                     .background(.black)
                     .clipShape(Capsule())
                     .sheet(isPresented: $presentConfirmation, onDismiss: {
+                        viewModel.updateCart()
                         dismiss()
                     }){
                         OrderConfirmationView()
@@ -203,6 +204,6 @@ struct CheckoutView: View {
 
 struct CheckoutView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckoutView(viewModel: CheckoutViewModel(cart: []))
+        CheckoutView(viewModel: CheckoutViewModel(cart: [], cartViewModel: CartViewModel()))
     }
 }

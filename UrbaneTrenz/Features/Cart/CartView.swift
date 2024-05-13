@@ -58,7 +58,7 @@ struct CartView: View {
                         .buttonStyle(.plain)
                         .disabled(viewModel.cart.isEmpty)
                         .sheet(isPresented: $viewModel.presentCheckout){
-                            CheckoutView(viewModel: CheckoutViewModel(cart: viewModel.cart))
+                            CheckoutView(viewModel: CheckoutViewModel(cart: viewModel.cart, cartViewModel: viewModel))
                         }
                     }
                     .padding(.top, 5)

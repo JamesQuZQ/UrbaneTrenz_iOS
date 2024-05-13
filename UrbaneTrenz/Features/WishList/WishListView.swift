@@ -24,8 +24,6 @@ struct WishListView: View {
                         
                     }
                     .clipped()
-                    
-
                 }
                 
                 VStack{

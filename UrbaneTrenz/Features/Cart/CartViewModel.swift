@@ -3,8 +3,6 @@
 //  UrbaneTrenz
 
 import Foundation
-import Alamofire
-import SwiftyJSON
 
 class CartViewModel : ObservableObject {
     

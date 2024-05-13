@@ -10,7 +10,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView{
             ZStack{
-                Color.gray.opacity(0.1).ignoresSafeArea()
+                Color.white.ignoresSafeArea()
                 VStack(spacing: 0){
                     HStack{
                         Spacer()
@@ -21,30 +21,30 @@ struct HomeView: View {
                     .background(.black)
                     .foregroundColor(.white)
                     ScrollView{
-                        Text("Welcome to Urbane Trenz")
-                                               .padding()
-                                               .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
-                                                   .cornerRadius(8)
-                                                   .foregroundColor(.white)
-                                                   .multilineTextAlignment(.center)
-                                                   .padding()
-                                           
-                                           VStack(spacing: 16) { // 间隔设置为 16
-                                               ProductSection(imageName: "home2", description: "This is the new product in this Spring. Enjoy your cloth in here.")
-                                               ProductSection(imageName: "home5", description: "Another great product for your style. Be a fassion woman in the city")
-                                               ProductSection(imageName: "home7", description: "Check out this exclusive summer collection.Enjoy the whole sunny day.")
-                                           }
-                                           
-                                           Spacer()
+                        VStack(spacing: 0){
+                            HStack{
+                                Spacer()
+                                Text("Free shipping on all orders")
+                                    .padding()
+                                    .font(.system(size: 30))
+                                    .bold()
+                                Spacer()
+                            }
+                            .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
+                            .cornerRadius(8)
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            .padding()
+                            VStack(spacing: 0) {
+                                ProductSection(imageName: "home2", description: "Shop Fall 2024")
+                                ProductSection(imageName: "home5", description: "New Arrivals")
+                                ProductSection(imageName: "home7", description: "Shop Collection")
+                            }
+                        }
+                       Spacer()
                     }
                     .clipped()
-
-                    HStack{
-                        Spacer()
-                        
-                    }
                 }
-                
             }
         }
     }
@@ -56,21 +56,26 @@ struct ProductSection: View {
     var description: String
     
     var body: some View {
-        VStack {
+        VStack(spacing:0) {
             Image(imageName)
                 .resizable()
-                .frame(width: 300, height: 200)
-                .scaledToFit()
-            
-            Text(description)
-                .padding()
-                .background(Color.gray.opacity(0.04)) // 灰色背景
-                .cornerRadius(8) // 圆角半径
-                .foregroundColor(.brown) // 文本颜色
-                .multilineTextAlignment(.center) // 多行文本居中对齐
-                .lineLimit(3) // 最多显示 3 行文本
+                .scaledToFill()
+                .overlay(
+                    VStack{
+                        Spacer()
+                        Text(description)
+                            .foregroundColor(.white)
+                            .bold()
+                            .font(.system(size: 30))
+                            .padding(.bottom, 5)
+                            .shadow(
+                                color:Color.black,
+                                radius: 10)
+                    }
+                )
         }
         .padding()
+        .padding(.top, -10)
     }
 }
 
